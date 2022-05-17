@@ -31,3 +31,4 @@ data class UserResponse(
     @SerializedName("status")
     val status: String
 ) : Parcelable
+

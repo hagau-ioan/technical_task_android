@@ -1,4 +1,4 @@
-package com.steelcase.common.utils
+package com.sliidepoc.common.utils
 
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers

@@ -4,7 +4,13 @@ import com.sliidepoc.data.http.models.PostActionResponse
 import com.sliidepoc.data.http.models.UserRequest
 import com.sliidepoc.data.http.models.UsersListResponse
 import retrofit2.Response
-import retrofit2.http.*
+import retrofit2.http.GET
+import retrofit2.http.POST
+import retrofit2.http.Query
+import retrofit2.http.Headers
+import retrofit2.http.Body
+import retrofit2.http.DELETE
+import retrofit2.http.Path
 
 /**
  * Define the url requests used into WSPProxy class file. This interface is built according to Retrofit documentation.

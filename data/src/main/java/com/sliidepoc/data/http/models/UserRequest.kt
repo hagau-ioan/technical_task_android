@@ -1,7 +1,9 @@
 package com.sliidepoc.data.http.models
 
+import android.os.Parcelable
 import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
 /**
  * Concrete implementation entity which expose data received from WSPProxy calls for an entity.
@@ -11,6 +13,7 @@ import com.google.gson.annotations.SerializedName
  * @author Ioan Hagau
  * @since 2020.11.26
  */
+@Parcelize
 @Keep
 data class UserRequest(
     @SerializedName("name")
@@ -24,4 +27,5 @@ data class UserRequest(
 
     @SerializedName("status")
     val status: String
-)
+) : Parcelable
+

@@ -14,7 +14,7 @@ import com.sliidepoc.stats.Stats
 import com.sliidepoc.stats.StatsEventsLogs
 import com.sliidepoc.ui.utils.DataLoadingStates
 import com.sliidepoc.ui.utils.ViewModelLiFeCycle
-import com.steelcase.common.utils.CoroutineContextThread
+import com.sliidepoc.common.utils.CoroutineContextThread
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

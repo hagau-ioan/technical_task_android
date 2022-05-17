@@ -1,9 +1,8 @@
 package com.sliidepoc.data.http.adapter
 
 import android.content.Context
-import android.util.Log
 import com.sliidepoc.common.retrofit.adapter.BaseRetrofitServiceAdapter
-import com.sliidepoc.data.http.UrlConfig
+import com.sliidepoc.poc.http.UrlConfig
 import com.sliidepoc.data.http.api.ApiInterface
 import com.sliidepoc.data.http.oauth.SessionManager
 import com.sliidepoc.stats.Stats

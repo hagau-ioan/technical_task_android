@@ -12,10 +12,12 @@ import kotlinx.parcelize.Parcelize
  * @author Ioan Hagau
  * @since 2020.11.26
  */
+@Parcelize
+@Keep
 data class PostActionResponse(
     @SerializedName("meta")
     val metaInfoResponse: MetaInfoResponse? = null,
 
     @SerializedName("data")
     val data: UserResponse? = null
-)
+) : Parcelable

@@ -1,4 +1,4 @@
-package com.steelcase.common.utils
+package com.sliidepoc.common.utils
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job

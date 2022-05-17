@@ -1,8 +1,8 @@
 package com.sliidepoc.ui.di
 
-import com.steelcase.common.utils.CoroutineContextThread
-import com.steelcase.common.utils.CoroutineScopeApp
-import com.steelcase.common.utils.CoroutineScopeAppImpl
+import com.sliidepoc.common.utils.CoroutineContextThread
+import com.sliidepoc.common.utils.CoroutineScopeApp
+import com.sliidepoc.common.utils.CoroutineScopeAppImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

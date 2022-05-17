@@ -12,8 +12,8 @@ import javax.inject.Singleton
  * @since 2022.01.22
  */
 @Singleton
-class SaveClientSecretUseCase @Inject constructor(private val OAuthRepository: OAuthRepository) {
+class SaveClientSecretUseCase @Inject constructor(private val oAuthRepository: OAuthRepository) {
     operator fun invoke(clientSecret: String): Flow<String> {
-        return OAuthRepository.saveClientSecret(clientSecret)
+        return oAuthRepository.saveClientSecret(clientSecret)
     }
 }

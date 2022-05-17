@@ -39,6 +39,6 @@ abstract class UsersRepositoryModule {
     @Binds
     @Singleton
     abstract fun bindsOauthProxy(
-        OAuthProxyImpl: OAuthProxyImpl
+        oAuthProxyImpl: OAuthProxyImpl
     ): OAuthProxy
 }
