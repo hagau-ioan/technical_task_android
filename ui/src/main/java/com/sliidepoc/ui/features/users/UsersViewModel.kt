@@ -1,9 +1,8 @@
 package com.sliidepoc.ui.features.users
 
-import android.util.Log
-import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.sliidepoc.common.utils.CoroutineContextThread
 import com.sliidepoc.common.utils.ext.TAG
 import com.sliidepoc.common.utils.ext.withTimeoutError
 import com.sliidepoc.domain.api.data.mapper.dto.model.UserDto
@@ -14,12 +13,10 @@ import com.sliidepoc.stats.Stats
 import com.sliidepoc.stats.StatsEventsLogs
 import com.sliidepoc.ui.utils.DataLoadingStates
 import com.sliidepoc.ui.utils.ViewModelLiFeCycle
-import com.sliidepoc.common.utils.CoroutineContextThread
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -35,8 +32,8 @@ class UsersViewModel @Inject constructor(
     private val addUserUseCase: AddUserUseCase,
     private val deleteUserUseCase: DeleteUserUseCase,
     private val stats: Stats,
-    private val coroutineContextThread: CoroutineContextThread,
-    private val savedStateHandle: SavedStateHandle
+    private val coroutineContextThread: CoroutineContextThread/*,
+    private val savedStateHandle: SavedStateHandle*/
 ) : ViewModel(), ViewModelLiFeCycle {
 
     private val _users = MutableStateFlow(emptyList<UserDto>())
@@ -48,7 +45,6 @@ class UsersViewModel @Inject constructor(
     fun loadUsers() {
         release()
         viewModelScope.launch(coroutineContextThread.io) {
-            Log.d("StepStep", "loadUsers")
             _dataState.emit(DataLoadingStates.LOADING)
             _users.emit(emptyList())
             withTimeoutError(run = { scope ->

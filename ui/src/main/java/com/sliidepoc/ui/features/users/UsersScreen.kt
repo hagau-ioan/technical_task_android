@@ -68,7 +68,7 @@ import com.sliidepoc.ui.utils.ScreenLifeCycle
  */
 @Suppress("UNUSED_PARAMETER")
 @Composable
-fun DisplayNewsScreen(
+fun DisplayUsersScreen(
     usersViewModel: UsersViewModel,
     navController: NavHostController,
     drawContentState: DrawContentScreenState

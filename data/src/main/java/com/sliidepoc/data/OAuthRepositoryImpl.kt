@@ -1,14 +1,11 @@
 package com.sliidepoc.data
 
-import android.util.Log
 import com.sliidepoc.data.http.api.OAuthProxy
 import com.sliidepoc.data.http.oauth.SessionManager
 import com.sliidepoc.domain.api.data.OAuthRepository
 import com.sliidepoc.domain.api.data.datastore.SettingsStore
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.zip
 import javax.inject.Inject
 import javax.inject.Singleton
 

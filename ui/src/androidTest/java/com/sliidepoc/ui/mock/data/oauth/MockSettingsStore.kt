@@ -1,6 +1,6 @@
-package com.sliidepoc.ui.mock.data
+package com.sliidepoc.ui.mock.data.oauth
 
-import com.sliidepoc.domain.api.data.OAuthRepository
+import com.sliidepoc.domain.api.data.datastore.SettingsStore
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
@@ -10,8 +10,7 @@ import javax.inject.Inject
  * @author Hagău Ioan
  * @since 2022.02.03
  */
-class MockOAuthRepository @Inject constructor(): OAuthRepository {
-
+class MockSettingsStore @Inject constructor(): SettingsStore {
     override fun saveClientId(clientId: String): Flow<String> {
         return flow { emit("client_id") }
     }
@@ -26,13 +25,5 @@ class MockOAuthRepository @Inject constructor(): OAuthRepository {
 
     override fun getClientSecret(): Flow<String> {
         return flow { emit("client_secret") }
-    }
-
-    override fun resolveOauth(first: String, second: String): Flow<Boolean> {
-        return flow { emit(true) }
-    }
-
-    override fun refreshOauth(): Flow<Boolean> {
-        return flow { emit(true) }
     }
 }

@@ -5,7 +5,6 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.sliidepoc.data.room.model.UserImpl
-import kotlinx.coroutines.flow.Flow
 
 /**
  * Room: Define the room operation with USER table. Check the room flow for DAO from Android specification

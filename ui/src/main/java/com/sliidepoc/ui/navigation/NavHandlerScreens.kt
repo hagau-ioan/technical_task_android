@@ -12,7 +12,7 @@ import androidx.navigation.compose.composable
 import com.sliidepoc.ui.R
 import com.sliidepoc.ui.components.DrawContentScreenState
 import com.sliidepoc.ui.features.single.DisplaySplashScreen
-import com.sliidepoc.ui.features.users.DisplayNewsScreen
+import com.sliidepoc.ui.features.users.DisplayUsersScreen
 
 /**
  *
@@ -27,7 +27,7 @@ fun ComposeNavigation(navController: NavHostController, drawContentState: DrawCo
             DisplaySplashScreen(navController = navController)
         }
         composable(NavPathRouteItem.Users.route) {
-            DisplayNewsScreen(hiltViewModel(), navController, drawContentState)
+            DisplayUsersScreen(hiltViewModel(), navController, drawContentState)
         }
     }
 }

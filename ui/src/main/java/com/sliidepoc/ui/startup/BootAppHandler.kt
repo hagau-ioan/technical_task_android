@@ -3,13 +3,13 @@
 package com.sliidepoc.ui.startup
 
 import android.content.Context
+import com.sliidepoc.common.utils.CoroutineScopeApp
 import com.sliidepoc.common.utils.eventbus.AppEvent
 import com.sliidepoc.common.utils.eventbus.EventBus
 import com.sliidepoc.common.utils.ext.TAG
 import com.sliidepoc.domain.api.data.OAuthRepository
 import com.sliidepoc.stats.Stats
 import com.sliidepoc.stats.StatsEventsLogs
-import com.sliidepoc.common.utils.CoroutineScopeApp
 import com.tinder.StateMachine
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.collectLatest

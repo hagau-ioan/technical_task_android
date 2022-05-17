@@ -1,6 +1,5 @@
 package com.sliidepoc.data
 
-import android.util.Log
 import com.sliidepoc.data.http.api.UsersProxy
 import com.sliidepoc.data.room.database.DataBase
 import com.sliidepoc.data.room.model.UserImpl

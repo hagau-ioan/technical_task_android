@@ -1,15 +1,16 @@
 package com.sliidepoc.ui
 
+import com.sliidepoc.common.utils.formater.StringUtils
 import com.sliidepoc.domain.api.data.OAuthRepository
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.take
 import kotlinx.coroutines.test.runTest
 import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.mockito.ArgumentMatchers.anyLong
 import org.mockito.Mock
 import org.mockito.Mockito.`when`
 import org.mockito.MockitoAnnotations
@@ -25,12 +26,12 @@ import org.mockito.junit.MockitoJUnitRunner
 
 @ExperimentalCoroutinesApi
 @RunWith(MockitoJUnitRunner::class)
-class DataStoreTest {
+class OAuthTest {
 
     private var closeable: AutoCloseable? = null
 
     @Mock
-    var OAuthRepository: OAuthRepository? = null
+    var oAuthRepository: OAuthRepository? = null
 
     @Before
     fun setUp() {
@@ -43,15 +44,15 @@ class DataStoreTest {
     }
 
     @Test
-    fun test_saveTC_success() = runTest {
-        OAuthRepository?.let {
+    fun test_getClientId_success() = runTest {
+        oAuthRepository?.let {
 
-            val expectedValue = true
+            val expectedValue = "client_id"
 
-            `when`(OAuthRepository?.saveTC(anyLong())).thenReturn(flow { emit(expectedValue) })
+            `when`(it.getClientId()).thenReturn(flow { emit(expectedValue) })
 
-            var result = false
-            it.saveTC(1L).take(1).collect { saved: Boolean ->
+            var result = StringUtils.EMPTY_STRING
+            it.getClientId().take(1).collect { saved: String ->
                 result = saved
             }
 
@@ -61,15 +62,15 @@ class DataStoreTest {
     }
 
     @Test
-    fun test_isSavedTC_success() = runTest {
-        OAuthRepository?.let {
+    fun test_getClientSecret_success() = runTest {
+        oAuthRepository?.let {
 
-            val expectedValue = 1L
+            val expectedValue = "client_secret"
 
-            `when`(OAuthRepository?.isTCSaved()).thenReturn(flow { emit(expectedValue) })
+            `when`(it.getClientSecret()).thenReturn(flow { emit(expectedValue) })
 
-            var result = -1L
-            it.isTCSaved().take(1).collect { saved: Long ->
+            var result = StringUtils.EMPTY_STRING
+            it.getClientSecret().take(1).collect { saved: String ->
                 result = saved
             }
 

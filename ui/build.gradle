@@ -91,7 +91,7 @@ dependencies {
     // Vendor area
 //    implementation ui_dep.coilComposeImageImpl
     implementation ui_dep.stateMachineImpl
-//    implementation ui_dep.roomAndroidxImpl
+    implementation ui_dep.roomAndroidxImpl
 
     // Testing area
     implementation ui_dep.androidxTestRunnerImpl
