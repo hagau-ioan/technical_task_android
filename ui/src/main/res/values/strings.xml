@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Sliide</string>
+    <string name="menu_item_title_users">Users List</string>
+    <string name="menu_item_title_splash">Sliide Splash Screen</string>
+    <string name="title_users">Users List</string>
+    <string name="data_loading">Loading…</string>
+    <string name="data_error">"ERROR. Something went wrong and not able to display the results."</string>
+    <string name="dialog_add_user_title">Use the form bellow and add a user.</string>
+    <string name="dialog_delete_user_title">Are you sure you want to remove this user?</string>
+    <string name="button_add_user">Add a new User</string>
+    <string name="button_delete_user">Delete User</string>
+    <string name="button_cancel_dialog">Cancel</string>
+    <string name="edittext_name">Name</string>
+    <string name="edittext_email">Email</string>
+    <string name="date_creation_unknown">Date creation unknown</string>
+</resources>

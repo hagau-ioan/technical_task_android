@@ -1,0 +1,19 @@
+<resources>
+
+    <style name="AppBaseTheme" parent="@android:style/Theme.NoTitleBar.Fullscreen" />
+
+    <style name="AppTheme" parent="@style/AppBaseTheme">
+        <!--        https://developer.android.com/guide/topics/ui/splash-screen-->
+        <!--        <item name="android:windowSplashScreenBackground">@color/design_default_color_background</item>-->
+        <!--        <item name="android:windowSplashScreenAnimatedIcon">@drawable/splash_app_window_screen_bg</item>-->
+        <!--        <item name="android:windowSplashScreenAnimationDuration">2000</item>-->
+        <item name="android:windowBackground">@drawable/splash_app_window_screen_bg</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@style/WindowAnimationFadeInOut</item>
+    </style>
+
+    <style name="WindowAnimationFadeInOut">
+        <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
+        <item name="android:windowExitAnimation">@android:anim/fade_out</item>
+    </style>
+</resources>

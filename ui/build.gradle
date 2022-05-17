@@ -1,0 +1,116 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-parcelize'
+    id 'androidx.navigation.safeargs.kotlin'
+    id 'dagger.hilt.android.plugin'
+    id 'io.gitlab.arturbosch.detekt'
+    id 'kotlin-kapt'
+}
+
+apply from: GRADLE_SCRIPT("dependencies")
+apply from: GRADLE_SCRIPT("ui/dependencies")
+apply from: GRADLE_SCRIPT('shared.build')
+apply from: "$rootDir/detekt/detekt.gradle"
+
+android {
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion ui_ver.androidxComposeVersion
+    }
+    defaultConfig {
+        // Required if we want to run tests in combination with HILT DI.
+        testInstrumentationRunner "com.sliidepoc.ui.lib.AppTestRunner"
+    }
+    sourceSets {
+        test {
+            java.srcDirs += "$projectDir/src/testShared"
+        }
+
+        androidTest {
+            java.srcDirs += "$projectDir/src/testShared"
+        }
+    }
+}
+
+dependencies {
+
+    implementation project(":common")
+    implementation project(":domain")
+    implementation project(":stats")
+    implementation project(":data")
+
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+
+    // Kotlin area
+    implementation dep.kotlinVersionCoreImpl
+    implementation dep.kotlinVersionCoroutineImpl
+
+    // Hilt area
+    implementation dep.hiltDaggerImpl
+    kapt dep.hiltDaggerImpl
+    kapt dep.hiltAndroidCompilerKapt
+    kapt dep.hiltAndroidXCompilerKapt
+    implementation dep.hiltCommonImpl
+    implementation dep.hiltWorkManager
+    implementation dep.hiltWorkManagerMultiprocess
+    implementation dep.hiltWorkManagerRuntime
+    androidTestImplementation dep.hiltWorkManagerTesting
+    implementation ui_dep.hiltViewModelNavigationImpl
+    kapt ui_dep.googleHiltCompilerImpl
+
+    // Androidx & compose & lifecycle area
+    implementation dep.androidxCompatImpl
+    implementation ui_dep.androidxComposeImpl
+    implementation ui_dep.androidxComposeMaterialImpl
+    implementation ui_dep.androidMaterial3Impl
+    implementation ui_dep.androidxComposeUIToolPreviewImpl
+    implementation ui_dep.androidxComposeRuntimeImpl
+    implementation ui_dep.androidxComposeUIToolImpl
+    implementation ui_dep.androidxLifeCycleImpl
+    implementation ui_dep.androidxActivityComposeImpl
+    implementation ui_dep.androidxComposeFoundationImpl
+    implementation ui_dep.androidxComposeMaterialIconsImpl
+    implementation ui_dep.androidxComposeAnimationImpl
+    implementation ui_dep.androidxRuntimeLiveDataImpl
+    implementation ui_dep.androidxActivityImpl
+    implementation ui_dep.androidxLifeCycleLiveDataImpl
+
+    // Design area
+    implementation ui_dep.androidDesignImpl
+    implementation ui_dep.androidDesignSupportImpl
+
+    // Navigation area
+    implementation ui_dep.androidNavigationFragmentImpl
+    implementation ui_dep.androidNavigationUIImpl
+    implementation ui_dep.androidNavigationFeaturesImpl
+    implementation ui_dep.androidNavigationComposeImpl
+
+    // Vendor area
+//    implementation ui_dep.coilComposeImageImpl
+    implementation ui_dep.stateMachineImpl
+//    implementation ui_dep.roomAndroidxImpl
+
+    // Testing area
+    implementation ui_dep.androidxTestRunnerImpl
+    implementation ui_dep.testHiltAndroidTestingImpl
+    implementation ui_dep.testAndroidxArchCoreTestingImpl
+    implementation ui_dep.testMockitoImpl
+    kaptTest dep.hiltAndroidCompilerKapt
+    kaptAndroidTest dep.hiltAndroidCompilerKapt
+    androidTestImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:$ver.kotlinCoroutineVersion") {
+        exclude group: "org.jetbrains.kotlinx", module: "kotlinx-coroutines-debug"
+    }
+    androidTestImplementation dep.testJunitTestImpl
+    androidTestImplementation ui_dep.testJunitUiImpl
+    androidTestImplementation ui_dep.androidxComposeUITestImpl
+    androidTestImplementation ui_dep.testHiltAndroidTestingImpl
+    androidTestAnnotationProcessor ui_dep.googleHiltCompilerImpl
+    debugImplementation ui_dep.androidxComposeUITestManifestImpl
+    testImplementation dep.testJunitImpl
+    testImplementation ui_dep.testJunitUiImpl
+    testImplementation ui_dep.testHiltAndroidTestingImpl
+    testAnnotationProcessor ui_dep.googleHiltCompilerImpl
+}

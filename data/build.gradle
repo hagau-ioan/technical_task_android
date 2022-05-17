@@ -1,0 +1,57 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-parcelize'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+    id 'io.gitlab.arturbosch.detekt'
+//    id 'com.google.devtools.ksp' version "1.7.0-Beta-1.0.5"
+}
+
+apply from: GRADLE_SCRIPT("dependencies")
+apply from: GRADLE_SCRIPT("data/dependencies")
+apply from: GRADLE_SCRIPT('shared.build')
+apply from: "$rootDir/detekt/detekt.gradle"
+
+android {
+    defaultConfig {
+        buildConfigField "String", "DEFAULT_DATA_BASE", "\"sliidepoc_database.db\""
+        buildConfigField "int", "DEFAULT_DATA_BASE_VER", "1"
+    }
+}
+
+dependencies {
+
+    implementation project(":common")
+    implementation project(":domain")
+    implementation project(":stats")
+
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+
+    implementation dep.kotlinVersionCoreImpl
+    implementation dep.androidxCompatImpl
+
+    implementation dep.kotlinVersionCoroutineImpl
+
+    implementation dep.hiltDaggerImpl
+    kapt dep.hiltAndroidCompilerKapt
+    kapt dep.hiltAndroidXCompilerKapt
+    implementation dep.hiltCommonImpl
+    implementation dep.hiltWorkManager
+    implementation dep.hiltWorkManagerMultiprocess
+    implementation dep.hiltWorkManagerRuntime
+    androidTestImplementation dep.hiltWorkManagerTesting
+
+    implementation data_dep.okhttpImpl
+    implementation data_dep.okhttpLoggingImpl
+    implementation data_dep.retrofitImpl
+    implementation data_dep.retrofitConvGsonImpl
+    implementation data_dep.retrofitConvMoshiImpl
+
+    implementation data_dep.cookieJarImpl
+    implementation data_dep.dataStoreImpl
+
+    implementation data_dep.roomImpl
+    kapt data_dep.roomCompilerKaptImpl
+    implementation data_dep.roomKotlinExtImpl
+}

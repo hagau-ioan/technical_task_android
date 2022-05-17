@@ -1,0 +1,28 @@
+ext {
+
+    // Versions
+    data_ver = [
+            retrofitVersion       : "2.6.1",
+            moshiJsonParserVersion: "2.9.0",
+            okhttpVersion         : "5.0.0-alpha.3",
+            cookieJarVersion      : "1.0.1",
+            dataStoreVersion      : "1.0.0-alpha04",
+            roomVersion           : "2.2.5",
+            roomCompilerVersion   : "2.2.5",
+            roomKotlinExtVersion  : "2.2.5"
+    ]
+
+    // Dependencies
+    data_dep = [
+            okhttpImpl           : "com.squareup.okhttp3:okhttp:$data_ver.okhttpVersion",
+            okhttpLoggingImpl    : "com.squareup.okhttp3:logging-interceptor:$data_ver.okhttpVersion",
+            retrofitImpl         : "com.squareup.retrofit2:retrofit:$data_ver.retrofitVersion",
+            retrofitConvGsonImpl : "com.squareup.retrofit2:converter-gson:$data_ver.retrofitVersion",
+            retrofitConvMoshiImpl: "com.squareup.retrofit2:converter-moshi:$data_ver.moshiJsonParserVersion",
+            cookieJarImpl        : "com.github.franmontiel:PersistentCookieJar:$data_ver.cookieJarVersion",
+            dataStoreImpl        : "androidx.datastore:datastore-preferences:$data_ver.dataStoreVersion",
+            roomImpl             : "androidx.room:room-runtime:$data_ver.roomVersion",
+            roomCompilerKaptImpl : "androidx.room:room-compiler:$data_ver.roomCompilerVersion",
+            roomKotlinExtImpl    : "androidx.room:room-ktx:$data_ver.roomKotlinExtVersion"
+    ]
+}

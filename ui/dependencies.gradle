@@ -1,0 +1,75 @@
+ext {
+
+    // Versions
+    ui_ver = [
+            androidxComposeVersion            : "1.2.0-alpha01",
+            androidxLifeCycleVersion          : "2.4.0",
+            androidComposeRuntimeVersion      : "1.0.0-beta07",
+            androidxActivityVersion           : "1.4.0",
+            androidMaterial3Version           : "1.0.0-alpha04",
+            testHiltAndroidVersion            : "2.40.5",
+            testAndroidxArchCoreTestingVersion: "2.1.0",
+            testMockitoVersion                : "4.3.1",
+            roomAndroidxVersion               : "2.4.1",
+            androidxTestRunnerVersion         : "1.4.0",
+            navigationFragmentVersion         : "2.4.0-rc01",
+            navigationUiVersion               : "2.4.0-rc01",
+            navigationFeaturesVersion         : "2.4.0-rc01",
+            navigationComposeVersion          : "2.4.0-rc01",
+            designSupportVersion              : "28.0.0",
+            designVersion                     : "28.0.0",
+            stateMachineVersion               : "0.2.0",
+            appPreferenceVersion              : "1.1.1",
+            hiltViewModelNavigationVersion    : "1.0.0-beta01",
+            coilComposeImageVersion           : "2.0.0-alpha07"
+//            androidMaterialVersion            : "1.4.0"
+//            roboelectricVersion               : "4.5.1",
+//            testEspressoVersion               : "3.4.0",
+
+    ]
+
+    // Dependencies
+    ui_dep = [
+            androidMaterial3Impl             : "androidx.compose.material3:material3:$ui_ver.androidMaterial3Version",
+            androidxComposeMaterialImpl      : "androidx.compose.material:material:$ui_ver.androidxComposeVersion",
+            androidxComposeRuntimeImpl       : "androidx.compose.runtime:runtime:$ui_ver.androidComposeRuntimeVersion",
+            androidxComposeUIToolImpl        : "androidx.compose.ui:ui-tooling:$ui_ver.androidxComposeVersion",
+            androidxComposeUIToolPreviewImpl : "androidx.compose.ui:ui-tooling-preview:$ui_ver.androidxComposeVersion",
+            androidxComposeImpl              : "androidx.compose.ui:ui:$ui_ver.androidxComposeVersion",
+            androidxComposeFoundationImpl    : "androidx.compose.foundation:foundation-layout:$ui_ver.androidxComposeVersion",
+            testHiltAndroidTestingImpl       : "com.google.dagger:hilt-android-testing:$ui_ver.testHiltAndroidVersion",
+            testAndroidxArchCoreTestingImpl  : "androidx.arch.core:core-testing:$ui_ver.testAndroidxArchCoreTestingVersion",
+            testMockitoImpl                  : "org.mockito:mockito-core:$ui_ver.testMockitoVersion",
+            roomAndroidxImpl                 : "androidx.room:room-ktx:$ui_ver.roomAndroidxVersion",
+            androidxComposeMaterialIconsImpl : "androidx.compose.material:material-icons-extended:$ui_ver.androidxComposeVersion",
+            androidxComposeAnimationImpl     : "androidx.compose.animation:animation:$ui_ver.androidxComposeVersion",
+            androidxRuntimeLiveDataImpl      : "androidx.compose.runtime:runtime-livedata:$ui_ver.androidxComposeVersion",
+            androidxActivityComposeImpl      : "androidx.activity:activity-compose:$ui_ver.androidxActivityVersion",
+            androidxActivityImpl             : "androidx.activity:activity-ktx:$ui_ver.androidxActivityVersion",
+            androidxLifeCycleImpl            : "androidx.lifecycle:lifecycle-runtime-ktx:$ui_ver.androidxLifeCycleVersion",
+            androidxLifeCycleLiveDataImpl    : "androidx.lifecycle:lifecycle-livedata-ktx:$ui_ver.androidxLifeCycleVersion",
+            androidNavigationFragmentImpl    : "androidx.navigation:navigation-fragment-ktx:$ui_ver.navigationFragmentVersion",
+            androidNavigationUIImpl          : "androidx.navigation:navigation-ui-ktx:$ui_ver.navigationUiVersion",
+            androidNavigationFeaturesImpl    : "androidx.navigation:navigation-dynamic-features-fragment:$ui_ver.navigationFeaturesVersion",
+            androidNavigationComposeImpl     : "androidx.navigation:navigation-compose:$ui_ver.navigationComposeVersion",
+            androidDesignSupportImpl         : "com.android.support:support-v4:$ui_ver.designSupportVersion",
+            androidDesignImpl                : "com.android.support:design:$ui_ver.designVersion",
+            stateMachineImpl                 : "com.tinder.statemachine:statemachine:$ui_ver.stateMachineVersion",
+            googleHiltCompilerImpl           : "com.google.dagger:hilt-compiler:$ui_ver.testHiltAndroidVersion",
+            androidxTestRunnerImpl           : "androidx.test:runner:$ui_ver.androidxTestRunnerVersion",
+            testJunitUiImpl                  : "androidx.compose.ui:ui-test-junit4:$ui_ver.androidxComposeVersion",
+            androidxComposeUITestImpl        : "androidx.compose.ui:ui-test:$ui_ver.androidxComposeVersion",
+            androidxComposeUITestManifestImpl: "androidx.compose.ui:ui-test-manifest:$ui_ver.androidxComposeVersion",
+            hiltViewModelNavigationImpl      : "androidx.hilt:hilt-navigation-compose:$ui_ver.hiltViewModelNavigationVersion",
+            coilComposeImageImpl             : "io.coil-kt:coil-compose:$ui_ver.coilComposeImageVersion"
+
+//             The Preference library allows you to build interactive settings screens
+//            appPreferenceImpl                : "androidx.preference:preference:$ui_ver.appPreferenceVersion",
+
+//            androidxLifeCycleViewModelRuntimeImpl: "androidx.lifecycle:lifecycle-viewmodel-savedstate:$ui_ver.androidxLifeCycleVersion",
+//            androidxLifeCycleViewModelComposeImpl: "androidx.lifecycle:lifecycle-viewmodel-compose:$ui_ver.androidxLifeCycleVersion",
+//            roboElectricImpl                 : "org.robolectric:robolectric:$ui_ver.roboelectricVersion",
+//            testEspressoImpl                 : "androidx.test.espresso:espresso-core:$ui_ver.testEspressoVersion",
+//            androidMaterialImpl              : "com.google.android.material:material:$ui_ver.androidMaterialVersion",
+    ]
+}

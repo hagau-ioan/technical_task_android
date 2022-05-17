@@ -1,0 +1,29 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-parcelize'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+
+apply from: GRADLE_SCRIPT("dependencies")
+apply from: GRADLE_SCRIPT("stats/dependencies")
+apply from: GRADLE_SCRIPT('shared.build')
+
+dependencies {
+
+    implementation project(":common")
+
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+
+    implementation dep.kotlinVersionCoreImpl
+    implementation dep.androidxCompatImpl
+
+    implementation dep.hiltDaggerImpl
+    kapt dep.hiltAndroidCompilerKapt
+    kapt dep.hiltAndroidXCompilerKapt
+
+//    implementation platform(dep.firebaseBoomImpl)
+//    implementation dep.firebaseAnalyticsImpl
+//    implementation dep.firebaseCrashlyticsImpl
+}

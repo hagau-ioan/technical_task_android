@@ -1,0 +1,86 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-parcelize'
+    id 'dagger.hilt.android.plugin'
+    id 'kotlin-kapt'
+}
+
+def keystorePropertiesFile = rootProject.file("/keys/keystore.properties")
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
+apply from: GRADLE_SCRIPT('dependencies')
+apply from: GRADLE_SCRIPT('shared.build')
+
+android {
+    // Rename the output APK in the following format : launcher_<flavor>_<version>_<date>_<buildType>.apk
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            def formattedDate = new Date().format('ddMMyyyy')
+            def newName = "sliidepoc_${variant.flavorName}_${variant.versionName}_${formattedDate}_${variant.buildType.name}.apk"
+            outputFileName = new File(newName)
+        }
+    }
+
+    flavorDimensions "default"
+    productFlavors {
+        free {
+            dimension "default"
+            minSdkVersion ver.minSdk
+            targetSdkVersion ver.targetSdk
+            versionNameSuffix "-free"
+        }
+        paid {
+            dimension "default"
+            minSdkVersion ver.minSdk
+            targetSdkVersion ver.targetSdk
+            versionNameSuffix "-paid"
+        }
+    }
+
+    signingConfigs {
+        debug {
+            storeFile file("$rootProject.projectDir" + keystoreProperties['signing_store_file'])
+            storePassword keystoreProperties['signing_keystore_password']
+            keyAlias keystoreProperties['signing_key_alias']
+            keyPassword keystoreProperties['signing_key_password']
+            //  For automatically build generation through gradlew
+            //  v1SigningEnabled true
+            //  v2SigningEnabled true
+        }
+        release {
+            storeFile file("$rootProject.projectDir" + keystoreProperties['signing_store_file'])
+            storePassword keystoreProperties['signing_keystore_password']
+            keyAlias keystoreProperties['signing_key_alias']
+            keyPassword keystoreProperties['signing_key_password']
+            //  For automatically build generation through gradlew
+            //  v1SigningEnabled true
+            //  v2SigningEnabled true
+        }
+    }
+}
+
+dependencies {
+
+    implementation project(":data")
+    implementation project(':domain')
+    implementation project(":ui")
+    implementation project(":stats")
+    implementation project(":common")
+
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+
+    implementation dep.kotlinVersionCoreImpl
+    implementation dep.androidxCompatImpl
+
+    implementation dep.hiltDaggerImpl
+    kapt dep.hiltAndroidCompilerKapt
+    kapt dep.hiltAndroidXCompilerKapt
+    implementation dep.hiltCommonImpl
+    implementation dep.hiltWorkManager
+    implementation dep.hiltWorkManagerMultiprocess
+    implementation dep.hiltWorkManagerRuntime
+
+    debugImplementation dep.leakcanaryDebugImpl
+}

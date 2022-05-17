@@ -1,0 +1,22 @@
+ext {
+
+    // Versions
+    common_ver = [
+            moshiJsonParserVersion: "2.9.0",
+            retrofitVersion       : "2.6.1",
+            okhttpVersion         : "5.0.0-alpha.3",
+            cookieJarVersion      : "1.0.1",
+            dataStoreVersion      : "1.0.0-alpha04"
+    ]
+
+    // Dependencies
+    common_dep = [
+            okhttpImpl           : "com.squareup.okhttp3:okhttp:$common_ver.okhttpVersion",
+            okhttpLoggingImpl    : "com.squareup.okhttp3:logging-interceptor:$common_ver.okhttpVersion",
+            retrofitImpl         : "com.squareup.retrofit2:retrofit:$common_ver.retrofitVersion",
+            retrofitConvGsonImpl : "com.squareup.retrofit2:converter-gson:$common_ver.retrofitVersion",
+            retrofitConvMoshiImpl: "com.squareup.retrofit2:converter-moshi:$common_ver.moshiJsonParserVersion",
+            cookieJarImpl        : "com.github.franmontiel:PersistentCookieJar:$common_ver.cookieJarVersion",
+            dataStoreImpl        : "androidx.datastore:datastore-preferences:$common_ver.dataStoreVersion"
+    ]
+}

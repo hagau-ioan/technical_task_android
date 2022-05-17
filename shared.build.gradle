@@ -1,0 +1,58 @@
+android {
+    compileSdk ver.compileSdk
+
+    defaultConfig {
+        minSdk ver.minSdk
+        targetSdk ver.targetSdk
+        versionCode ver.versionCode
+        versionName ver.versionName
+
+        consumerProguardFiles "consumer-rules.pro"
+
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+    buildTypes {
+        release {
+            signingConfig signingConfigs.debug
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        useIR = false // no target code for other platforms
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+        // Adding this to offer some additional compile compatibility for Composer usage methods like: CrossFade
+        freeCompilerArgs += ["-Xskip-prerelease-check", "-Xopt-in=kotlin.RequiresOptIn"]
+    }
+    lintOptions {
+        quiet true
+        abortOnError false
+        ignoreWarnings false
+        disable 'InvalidPackage'            //Some libraries have issues with this.
+        disable 'OldTargetApi'              //Lint gives this warning but SDK 20 would be Android L Beta.
+        disable 'IconDensities'             //For testing purpose. This is safe to remove.
+        disable 'IconMissingDensityFolder'  //For testing purpose. This is safe to remove.
+    }
+    packagingOptions {
+        resources {
+            excludes += '**/attach_hotspot_windows.dll'
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+            excludes += 'META-INF/DEPENDENCIES'
+            excludes += 'META-INF/LICENSE'
+            excludes += 'META-INF/LICENSE.txt'
+            excludes += 'META-INF/license.txt'
+            excludes += 'META-INF/NOTICE'
+            excludes += 'META-INF/NOTICE.txt'
+            excludes += 'META-INF/notice.txt'
+            excludes += 'META-INF/ASL2.0'
+            excludes += 'META-INF/*.kotlin_module'
+            excludes += 'META-INF/licenses/ASM'
+        }
+    }
+}

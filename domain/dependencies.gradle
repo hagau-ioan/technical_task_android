@@ -1,0 +1,11 @@
+ext {
+
+    // Versions
+    domain_ver = [
+    ]
+
+    // Dependencies
+    domain_dep = [
+
+    ]
+}
